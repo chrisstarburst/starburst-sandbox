@@ -13,20 +13,21 @@ This Sandbox is based on the https://github.com/starburstdata/dbt-trino project 
 
 ## Installation
 
-### Configure Starburst harbor registry
+1. Configure Starburst harbor registry
 
-### Test access to Starburst harbor registry
+2. Test access to Starburst harbor registry
 
-### Clone the Github Repository
 
-### Copy License File
+3. Clone the Github Repository
+
+4. Copy License File
 
 `cp starburstdata.license ./docker/starburst/etc/starburstdata.license`
 
-### Start Starburst 
+5. Start Starburst 
 
 `./start-starburst.sh`
 
-### Validate that you are able to access the Endpoint
+6.  Validate that you are able to access the Endpoint
 
 `http://localhost:8080`
