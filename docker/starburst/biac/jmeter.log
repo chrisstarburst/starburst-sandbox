@@ -1,0 +1,38 @@
+2023-03-27 13:14:08,412 INFO o.a.j.u.JMeterUtils: Setting Locale to en_EN
+2023-03-27 13:14:08,425 INFO o.a.j.JMeter: Loading user properties from: /opt/homebrew/Cellar/jmeter/5.5/libexec/bin/user.properties
+2023-03-27 13:14:08,426 INFO o.a.j.JMeter: Loading system properties from: /opt/homebrew/Cellar/jmeter/5.5/libexec/bin/system.properties
+2023-03-27 13:14:08,428 INFO o.a.j.JMeter: Copyright (c) 1998-2022 The Apache Software Foundation
+2023-03-27 13:14:08,428 INFO o.a.j.JMeter: Version 5.5
+2023-03-27 13:14:08,429 INFO o.a.j.JMeter: java.version=18.0.2.1
+2023-03-27 13:14:08,429 INFO o.a.j.JMeter: java.vm.name=OpenJDK 64-Bit Server VM
+2023-03-27 13:14:08,429 INFO o.a.j.JMeter: os.name=Mac OS X
+2023-03-27 13:14:08,429 INFO o.a.j.JMeter: os.arch=aarch64
+2023-03-27 13:14:08,429 INFO o.a.j.JMeter: os.version=12.5
+2023-03-27 13:14:08,429 INFO o.a.j.JMeter: file.encoding=UTF-8
+2023-03-27 13:14:08,429 INFO o.a.j.JMeter: java.awt.headless=null
+2023-03-27 13:14:08,429 INFO o.a.j.JMeter: Max memory     =1073741824
+2023-03-27 13:14:08,429 INFO o.a.j.JMeter: Available Processors =10
+2023-03-27 13:14:08,434 INFO o.a.j.JMeter: Default Locale=English (EN)
+2023-03-27 13:14:08,434 INFO o.a.j.JMeter: JMeter  Locale=English (EN)
+2023-03-27 13:14:08,434 INFO o.a.j.JMeter: JMeterHome=/opt/homebrew/Cellar/jmeter/5.5/libexec
+2023-03-27 13:14:08,434 INFO o.a.j.JMeter: user.dir  =/Users/cneundorf/Documents/GitHub/starburst-sandbox/docker/starburst/biac
+2023-03-27 13:14:08,434 INFO o.a.j.JMeter: PWD       =/Users/cneundorf/Documents/GitHub/starburst-sandbox/docker/starburst/biac
+2023-03-27 13:14:08,445 INFO o.a.j.JMeter: IP: 192.168.2.89 Name: Christians-MacBook-Pro-2.fritz.box FullName: christians-macbook-pro-2.fritz.box
+2023-03-27 13:14:08,449 INFO o.a.j.JMeter: Loaded icon properties from org/apache/jmeter/images/icon.properties
+2023-03-27 13:14:08,785 INFO o.a.j.JMeterGuiLauncher: Setting LAF to: com.github.weisj.darklaf.DarkLaf:com.github.weisj.darklaf.theme.DarculaTheme
+2023-03-27 13:14:10,084 INFO o.j.r.JARSourceHTTP: Found cached repo
+2023-03-27 13:14:10,153 INFO o.j.r.PluginManager: Plugins Status: [jpgc-plugins-manager=1.7, jmeter-core=5.5, jmeter-ftp=5.5, jmeter-http=5.5, jmeter-jdbc=5.5, jmeter-jms=5.5, jmeter-junit=5.5, jmeter-java=5.5, jmeter-ldap=5.5, jmeter-mail=5.5, jmeter-mongodb=5.5, jmeter-native=5.5, jmeter-tcp=5.5, jmeter-components=5.5]
+2023-03-27 13:14:10,153 INFO o.j.r.PluginManagerMenuItem: Plugins Manager has upgrades: [jpgc-plugins-manager]
+2023-03-27 13:19:27,403 INFO o.a.j.s.FileServer: Default base='/Users/cneundorf/Documents/GitHub/starburst-sandbox/docker/starburst/biac'
+2023-03-27 13:19:27,421 INFO o.a.j.g.a.Load: Loading file: /Users/cneundorf/Downloads/Starburst_RandomSQL_v1.jmx
+2023-03-27 13:19:27,421 INFO o.a.j.s.FileServer: Set new base='/Users/cneundorf/Downloads'
+2023-03-27 13:19:27,561 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
+2023-03-27 13:19:27,566 INFO o.a.j.s.SaveService: Using SaveService properties version 5.0
+2023-03-27 13:19:27,567 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8
+2023-03-27 13:19:27,567 INFO o.a.j.s.SaveService: Loading file: /Users/cneundorf/Downloads/Starburst_RandomSQL_v1.jmx
+2023-03-27 13:19:27,679 INFO o.a.j.s.SampleResult: Note: Sample TimeStamps are START times
+2023-03-27 13:19:27,679 INFO o.a.j.s.SampleResult: sampleresult.default.encoding is set to ISO-8859-1
+2023-03-27 13:19:27,679 INFO o.a.j.s.SampleResult: sampleresult.useNanoTime=true
+2023-03-27 13:19:27,679 INFO o.a.j.s.SampleResult: sampleresult.nanoThreadSleep=5000
+2023-03-27 13:19:27,755 INFO o.a.j.v.ViewResultsFullVisualizer: Add JavaFX to your Java installation if you want to use renderer: org.apache.jmeter.visualizers.RenderInBrowser
+2023-03-27 13:19:27,832 INFO o.a.j.s.FileServer: Set new base='/Users/cneundorf/Downloads'
