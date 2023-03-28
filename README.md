@@ -61,9 +61,9 @@ Execute the following CTAS statements using the Starburst Insight Query Editor
 ![Create Table](images/create-table.png)
 
 `-- Use Starburst Trino to write data to RDBMS like postgres and to a Datalake S3,ADLS,GCP,HDFS
- create table postgresql.public.customer as select * from tpch.tiny.customer; \
-create table hive.default.orders as select *from tpch.tiny.orders; \
-create table hive.default.lineitem as select * from tpch.tiny.lineitem;` \
+ create table postgresql.public.customer as select * from tpch.tiny.customer;\ 
+create table hive.default.orders as select *from tpch.tiny.orders;\ 
+create table hive.default.lineitem as select * from tpch.tiny.lineitem;\` 
 
 9. Use Starburst to run a federated query accross different data sources
 Execute the following query using the Starburst Insight Query Editor
