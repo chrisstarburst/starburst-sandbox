@@ -12,9 +12,11 @@ This Sandbox is based on the https://github.com/starburstdata/dbt-trino project 
 
 ### Rancher Settings
 
-Resource Settings
+#### Resource Settings
+
 ![Rancher](images/rancher-settings-1.png)
-Docker Settings
+
+#### Docker Settings
 ![Rancher](images/rancher-settings-2.png)
 
 
@@ -54,8 +56,9 @@ password minio123
 7. Get familiar with with the Starburst UI
 
 8. Use Starburst to write some data to the connected postgres and minio s3 data source.
+Execute the following CTAS statements using the Starburst Insight Query Editor
 
-![Rancher](images/create-table.png)
+![Create Table](images/create-table.png)
 
 `-- Use Starburst Trino to write data to RDBMS like postgres and to a Datalake S3,ADLS,GCP,HDFS
 create table postgresql.public.customer as select * from tpch.tiny.customer;
@@ -63,8 +66,9 @@ create table hive.default.orders as select *from tpch.tiny.orders;
 create table hive.default.lineitem as select * from tpch.tiny.lineitem;`
 
 9. Use Starburst to run a federated query accross different data sources
+Execute the following query using the Starburst Insight Query Editor
 
-![Rancher](images/run-query.png)
+![Query Execution](images/run-query.png)
 
 `select
     c.name,
