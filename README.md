@@ -15,19 +15,64 @@ This Sandbox is based on the https://github.com/starburstdata/dbt-trino project 
 
 1. Configure Starburst harbor registry
 
+`docker login harbor.starburstdata.net/starburstdata --username <your-starburst-harbor-user --password <your-starburst-harbor-password>`
+
 2. Test access to Starburst harbor registry
 
+`docker search starburst-enterprise | grep starburstdata/starburst-enterprise `
 
 3. Clone the Github Repository
 
-4. Copy License File
+`git clone https://github.com/chrisstarburst/starburst-sandbox.git`
+
+4. Copy your requested Starburst license file (https://www.starburst.io/contact) to the starburst-sandbox folder in the ./docker/starburst/etc/ directory
 
 `cp starburstdata.license ./docker/starburst/etc/starburstdata.license`
 
-5. Start Starburst 
+5. Start Starburst Sandbox
 
 `./start-starburst.sh`
 
-6.  Validate that you are able to access the Endpoint
+6.  Validate that you are able to access the endpoints
 
-`http://localhost:8080`
+`Starburst UI -> http://localhost:8080`
+user: admin
+password: 
+
+`Minio UI -> http://localhost:9001`
+user: minio
+password minio123
+
+7. Get familiar with with the Starburst UI
+
+8. Use Starburst to write some data to the connected postgres and minio s3 data source.
+
+`-- Use Starburst Trino to write data to RDBMS like postgres and to a Datalake S3,ADLS,GCP,HDFS
+create table postgresql.public.customer as select * from tpch.tiny.customer;
+create table hive.default.orders as select *from tpch.tiny.orders;
+create table hive.default.lineitem as select * from tpch.tiny.lineitem;`
+
+9. Use Starburst to run a federated query accross different data sources
+
+`select
+    c.name,
+    c.nationkey,
+    sum(l.extendedprice) as spend,
+    avg(l.discount) as avgdiscount
+from
+    postgresql.public.customer as c
+    inner join hive.default.orders as o using (custkey)
+    inner join hive.default.lineitem as l using (orderkey)
+where
+    c.mktsegment = 'AUTOMOBILE'
+    and c.nationkey in (6, 7, 19, 21, 22)
+    and o.orderstatus = 'F'
+    and o.orderdate >= date('1993-06-01')
+group by
+    c.name,
+    c.mktsegment,
+    c.nationkey,
+    o.orderstatus,
+    o.orderdate
+order by
+    spend desc;`
