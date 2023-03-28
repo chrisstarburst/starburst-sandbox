@@ -5,7 +5,7 @@ This Sandbox is based on the https://github.com/starburstdata/dbt-trino project 
 
 
 ## Prerequisites
-- Docker or Rancher Desktop Version 1.8.1 
+- Tested on Docker version 23.0.1 and Rancher Desktop Version 1.8.1 
 - 6GB RAM 2 Cores
 - Access to the Starburst Harbor Registry
 - A valid Starburst Enterprise License request here https://www.starburst.io/contact
@@ -16,10 +16,11 @@ This Sandbox is based on the https://github.com/starburstdata/dbt-trino project 
 
 ![Rancher](images/rancher-settings-1.png)
 
-#### Docker Settings
+#### Rancher Container Settings
 ![Rancher](images/rancher-settings-2.png)
 
-
+### Docker Settings
+![Docker](images/docker.png)
 
 ## Installation
 
@@ -66,6 +67,9 @@ Starburst Login Page
 
 ![Welcome](images/welcome.png)
 
+## Tutorial
+
+
 Select the sysadmin role  
 
 ![Sysadmin](images/sysadmin.png)
@@ -96,7 +100,7 @@ Execute the following CTAS statements using the Starburst Insight Query Editor
 `create table hive.default.orders as select *from tpch.tiny.orders;`  
 `create table hive.default.lineitem as select * from tpch.tiny.lineitem;`   
 
-9. Use Starburst to run a federated query accross different data sources
+9. Use Starburst to run a federated query accross different data sources including a datalake and rdbms. 
 Execute the following query using the Starburst Insight Query Editor
 
 ![Query Execution](images/run-query.png)
@@ -123,3 +127,12 @@ group by
     o.orderdate
 order by
     spend desc;`
+
+
+## Sandbox Maintenance
+
+### Stop Instances:
+
+`./stop-starburst.sh`
+
+### Clean Up Instances:
