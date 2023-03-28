@@ -91,20 +91,13 @@ services:
       - ./docker/starburst/etc:/etc/starburst
       - ./docker/starburst/catalog:/etc/starburst/catalog
 
-#  sb-biac-job:
-#   image: "bitsofinfo/cicd-toolbox:latest"
-#   entrypoint: |
-#     /bin/bash -c "
-#     sleep 30;
-#     /bin/bash /tmp/biac/setup-biac-roles.sh"
-#   volumes:
-#     - ./docker/starburst/biac:/tmp/biac
-#
-#   depends_on:
-#      - trino
 
-
-
+  set-biac-job:
+    image: sb_biac_run
+    build:
+      dockerfile: ./docker/starburst/biac/Dockerfile
+    entrypoint: |
+      /bin/bash -c "sleep 30; /bin/bash /tmp/setup-biac-roles.sh"
 
 networks:
   default:

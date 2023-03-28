@@ -1,4 +1,4 @@
-TRINO_ENDPOINT="http://localhost:8080"
+TRINO_ENDPOINT="http://trino:8080"
 USER="admin"
 PASSWORD=
 TOKEN=`echo "${USER}:${PASSWORD}" | base64`
