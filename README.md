@@ -45,37 +45,61 @@ This Sandbox is based on the https://github.com/starburstdata/dbt-trino project 
 
 6.  Validate that you are able to access the endpoints
 
-`Starburst UI -> http://localhost:8080`
-user: admin
+`Starburst UI -> http://localhost:8080`  
+user: admin  
 password: 
 
-`Minio UI -> http://localhost:9001`
-user: minio
-password minio123
+`Minio UI -> http://localhost:9001`  
+user: minio  
+password minio123  
 
 7. Get familiar with with the Starburst UI
+
+Starburst Login Page  
+
+![Welcome](images/welcome.png)
+
+Select the sysadmin role  
+
+![Sysadmin](images/sysadmin.png)
+
+Create a sales domain
+
+|     |  |  
+| -------- | -------- | 
+| Domain name  | **Sales**     | 
+| Domain Description | **Sales Domain**    |  
+| Schema location URI    | **s3://datalake/sales**    | 
+
+![Domain](images/sales-domain.png)
+
+
+
+Get famliar with the Query Editor and browse the connected data sources 
+
+![Domain](images/query-editor.png)
 
 8. Use Starburst to write some data to the connected postgres and minio s3 data source.
 Execute the following CTAS statements using the Starburst Insight Query Editor
 
 ![Create Table](images/create-table.png)
 
-`-- Use Starburst Trino to write data to RDBMS like postgres and to a Datalake S3,ADLS,GCP,HDFS` 
-`create table postgresql.public.customer as select * from tpch.tiny.customer;`
-`create table hive.default.orders as select *from tpch.tiny.orders;`
-`create table hive.default.lineitem as select * from tpch.tiny.lineitem;` 
+`-- Use Starburst Trino to write data to RDBMS like postgres and to a Datalake S3,ADLS,GCP,HDFS`   
+`create table postgresql.public.customer as select * from tpch.tiny.customer;`  
+`create table hive.default.orders as select *from tpch.tiny.orders;`  
+`create table hive.default.lineitem as select * from tpch.tiny.lineitem;`   
 
 9. Use Starburst to run a federated query accross different data sources
 Execute the following query using the Starburst Insight Query Editor
 
 ![Query Execution](images/run-query.png)
 
-`select
-    c.name,
-    c.nationkey,
-    sum(l.extendedprice) as spend,
-    avg(l.discount) as avgdiscount
-from
+`select  
+    c.name,   
+    c.nationkey,  
+    sum(l.extendedprice) as spend,  
+    avg(l.discount) as avgdiscount  
+from  
     postgresql.public.customer as c
     inner join hive.default.orders as o using (custkey)
     inner join hive.default.lineitem as l using (orderkey)
