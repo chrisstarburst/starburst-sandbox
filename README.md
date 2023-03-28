@@ -31,9 +31,16 @@ This Sandbox is based on the https://github.com/starburstdata/dbt-trino project 
 
 `docker search starburst-enterprise | grep starburstdata/starburst-enterprise `
 
+You should receive the following output   
+`starburstdata/starburst-enterprise    Docker image of Starburst Enterprise platform  4`
+
 3. Clone the Github Repository
 
 `git clone https://github.com/chrisstarburst/starburst-sandbox.git`
+
+or using github cli
+
+`gh repo clone chrisstarburst/starburst-sandbox`
 
 4. Copy your requested Starburst license file (https://www.starburst.io/contact) to the starburst-sandbox folder in the ./docker/starburst/etc/ directory
 
