@@ -129,6 +129,33 @@ order by
     spend desc;`
 
 
+10. Create a Dataproduct
+![Create Table](images/create-data-product-1.png)
+
+11. Define the Dataproduct
+![Create Table](images/create-a-data-product-2.png)
+
+12. Define the dataset for the data product
+![Create Table](images/create-a-data-product-3.png)
+
+13. Add metadata and column descriptions to your dataset and save it
+![Create Table](images/create-a-data-product-4.png)
+
+14. Assing one or more data product owner
+![Create Table](images/create-a-data-product-5.png)
+
+15. Add Tags to make the data product easily discoverable for your consumers
+![Create Table](images/create-a-data-product-6.png)
+
+16. Publish the Data Product
+![Create Table](images/create-a-data-product-8.png)
+
+17. Copy the catalog information to consume your dataset 
+![Create Table](images/create-a-data-product-9.png)
+
+18. Query the  Dataproduct
+![Create Table](images/create-a-data-product-10.png)
+
 ## Sandbox Maintenance
 
 ### Stop Instances:
@@ -136,3 +163,5 @@ order by
 `./stop-starburst.sh`
 
 ### Clean Up Instances:
+
+`./remove-starburst.sh`
