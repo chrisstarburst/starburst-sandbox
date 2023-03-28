@@ -10,6 +10,10 @@ This Sandbox is based on the https://github.com/starburstdata/dbt-trino project 
 - Access to the Starburst Harbor Registry
 - A valid Starburst Enterprise License request here https://www.starburst.io/contact
 
+### Rancher Settings
+
+![Rancher](images/rancher-settings-1.png)
+
 
 ## Installation
 
