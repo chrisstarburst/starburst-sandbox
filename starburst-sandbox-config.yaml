@@ -98,6 +98,8 @@ services:
       dockerfile: ./docker/starburst/biac/Dockerfile
     entrypoint: |
       /bin/bash -c "sleep 30; /bin/bash /tmp/setup-biac-roles.sh"
+    depends_on:
+      - trino
 
 networks:
   default:
