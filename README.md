@@ -4,11 +4,21 @@ The Starburst Sandbox is a community-driven initiative that aims to offer a rapi
 This Sandbox is based on the https://github.com/starburstdata/dbt-trino project and includes modification to enable Starburst Enterprise Features.
 
 
+
+
 ## Prerequisites
-- Tested on Docker version 23.0.1 and Rancher Desktop Version 1.8.1 
-- 6GB RAM 2 Cores
+- docker compose
+- Resources: 6GB RAM, 2 Cores, x GB Free Space
+- Available Ports:  localhost:8080 and :9001
 - Access to the Starburst Harbor Registry
 - A valid Starburst Enterprise License request here https://www.starburst.io/contact
+
+## Tested 
+
+- Tested on Docker version 23.0.1 and Rancher Desktop Version 1.8.1 
+- Tested with Starburst Enterprise Versions 
+    - SEP STS 4.10
+
 
 ### Rancher Settings
 
