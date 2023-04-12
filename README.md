@@ -3,6 +3,8 @@
 The Starburst Sandbox is a community-driven initiative that aims to offer a rapid demonstration and development environment by leveraging docker-compose. Its primary objective is to showcase Data Products and BIAC functionalities to users. It is worth noting that this sandbox is not an officially supported project by Starburst Data and is not suitable for production purposes.
 This Sandbox is based on the https://github.com/starburstdata/dbt-trino project and includes modification to enable Starburst Enterprise Features.
 
+![Architecture ](images/sandbox.png)
+
 
 
 
@@ -34,18 +36,18 @@ This Sandbox is based on the https://github.com/starburstdata/dbt-trino project 
 
 ## Installation
 
-1. Configure Starburst harbor registry
+## 1. Configure Starburst harbor registry
 
 `docker login harbor.starburstdata.net/starburstdata --username <your-starburst-harbor-user --password <your-starburst-harbor-password>`
 
-2. Test access to Starburst harbor registry
+## 2. Test access to Starburst harbor registry
 
 `docker search starburst-enterprise | grep starburstdata/starburst-enterprise `
 
 You should receive the following output   
 `starburstdata/starburst-enterprise    Docker image of Starburst Enterprise platform  4`
 
-3. Clone the Github Repository
+## 3. Clone the Github Repository
 
 `git clone https://github.com/chrisstarburst/starburst-sandbox.git`
 
@@ -53,15 +55,15 @@ or using github cli
 
 `gh repo clone chrisstarburst/starburst-sandbox`
 
-4. Copy your requested Starburst license file (https://www.starburst.io/contact) to the starburst-sandbox folder in the ./docker/starburst/etc/ directory
+## 4. Copy your requested Starburst license file (https://www.starburst.io/contact) to the starburst-sandbox folder in the ./docker/starburst/etc/ directory
 
 `cp starburstdata.license ./docker/starburst/etc/starburstdata.license`
 
-5. Start Starburst Sandbox
+## 5. Start Starburst Sandbox
 
 `./start-starburst.sh`
 
-6.  Validate that you are able to access the endpoints
+## 6.  Validate that you are able to access the endpoints
 
 `Starburst UI -> http://localhost:8080`  
 user: admin  
@@ -71,11 +73,27 @@ password:
 user: minio  
 password minio123  
 
-7. Get familiar with with the Starburst UI
+## 7. Get familiar with with the Starburst UI
 
 Starburst Login Page  
 
 ![Welcome](images/welcome.png)
+
+## Sandbox Maintenance
+
+### Start Instances:
+You can start the Starburst Sandbox using the following command: 
+
+`./start-starburst.sh`
+
+### Stop Instances:
+You can stop the Starburst Sandbox using the following 
+`./stop-starburst.sh`
+
+### Clean Up Instances:
+You can remove the instance including the data volumes 
+
+`./remove-starburst.sh`
 
 ## Tutorial
 
@@ -103,6 +121,8 @@ Get famliar with the Query Editor and browse the connected data sources
 8. Use Starburst to write some data to the connected postgres and minio s3 data source.
 Execute the following CTAS statements using the Starburst Insight Query Editor
 
+Tip: You can use your mouse and  mark all the create table statements and then click the Run button. This will execute multiple CTAS statements in a sequential order. 
+
 ![Create Table](images/create-table.png)
 
 `-- Use Starburst Trino to write data to RDBMS like postgres and to a Datalake S3,ADLS,GCP,HDFS`   
@@ -110,7 +130,7 @@ Execute the following CTAS statements using the Starburst Insight Query Editor
 `create table hive.default.orders as select *from tpch.tiny.orders;`  
 `create table hive.default.lineitem as select * from tpch.tiny.lineitem;`   
 
-9. Use Starburst to run a federated query accross different data sources including a datalake and rdbms. 
+## 9. Use Starburst to run a federated query accross different data sources including a datalake and rdbms. 
 Execute the following query using the Starburst Insight Query Editor
 
 ![Query Execution](images/run-query.png)
@@ -139,39 +159,72 @@ order by
     spend desc;`
 
 
-10. Create a Dataproduct
+## 10. Create a Dataproduct
+
+The goal of data products is to make data accessible, consumable, insightful, and actionable for the increasing number of stakeholders who rely on data to inform their decision-making.  
+
+Data has immense value, but it’s hard to extract information that drives business objectives from raw data. Data products take raw data and translate it into something relevant and useful within its domain — a product people can utilize to achieve business goals.
+
+In our next step we will create a data product that’s fit for consumption by downstream users.
+
+Click on the "Add to Data Product" link and then select the Dialog "Create New data product" 
+
 ![Create Table](images/create-data-product-1.png)
 
-11. Define the Dataproduct
+## 11. Define the Dataproduct
+
+Provide a title and a description for your data product and click 'Save and Continue'.
+
 ![Create Table](images/create-a-data-product-2.png)
 
-12. Define the dataset for the data product
+## 12. Define the dataset for the data product
+
+Now we will add our federated query as a dataset.  
+Update the name of the dataset and add a description to your query. You can expand the show columns and add descriptions menu:
+
 ![Create Table](images/create-a-data-product-3.png)
 
-13. Add metadata and column descriptions to your dataset and save it
+to add additional information to the columns on your data set and make it more meaningful for your data consumers.
+
 ![Create Table](images/create-a-data-product-4.png)
 
-14. Assing one or more data product owner
+## 14. Assing one or more data product owner
+
+The people who build data products are also responsible for security, provenance, and ownership so that the final product better reflects the technical requirements of the data within the domain. 
+Adding a data product owner is mandatory!
+
+
 ![Create Table](images/create-a-data-product-5.png)
 
-15. Add Tags to make the data product easily discoverable for your consumers
+## 15. Add Tags to make the data product easily discoverable for your data consumers
+
+Add some tags and Click Save and review. 
+
 ![Create Table](images/create-a-data-product-6.png)
 
-16. Publish the Data Product
+## 16. Publish the Data Product
+As a last step we have to publish our data product before we can query and consume it. 
+
 ![Create Table](images/create-a-data-product-8.png)
 
-17. Copy the catalog information to consume your dataset 
+
+## 17. Copy the catalog information to consume the dataset 
+
+Now we can copy the location "catalog.schema.table" of our dataset using the "Copy icon" under the automobile_customer_spend data set: 
+In our example the location is: 
+
+`hive.automobilespend.automobile_customer_spend`
+
 ![Create Table](images/create-a-data-product-9.png)
 
-18. Query the  Dataproduct
+## 18. Query the Dataproduct
+
+You can go to the Query Editor and query the data product dataset using the following query: 
+
+`select * from hive.automobilespend.automobile_customer_spend`
+
 ![Create Table](images/create-a-data-product-10.png)
 
-## Sandbox Maintenance
 
-### Stop Instances:
+## Security 
 
-`./stop-starburst.sh`
-
-### Clean Up Instances:
-
-`./remove-starburst.sh`
