@@ -5,6 +5,24 @@ This Sandbox is based on the https://github.com/starburstdata/dbt-trino project 
 
 ![Architecture ](images/sandbox.png)
 
+## Use Cases: 
+
+- quick trials and functional testing
+- development and demo purposes
+- tutorials
+- Sanbox Environment
+- BIAC Demos
+- Data Product Demos
+- API testing
+
+
+## Out of Scope:
+
+- Performance testing
+- Production workloads
+- Support
+- Authentication and encryption 
+- Large data workloads
 
 
 
@@ -217,7 +235,7 @@ In our example the location is:
 
 ![Create Table](images/create-a-data-product-9.png)
 
-## 18. Query the Dataproduct
+## 18. Query the Data Product
 
 You can go to the Query Editor and query the data product dataset using the following query: 
 
@@ -225,6 +243,16 @@ You can go to the Query Editor and query the data product dataset using the foll
 
 ![Create Table](images/create-a-data-product-10.png)
 
+### 19. Searching for Data Products
+
 
 ## Security 
+
+Starburst Enterprise platform (SEP) provides a built-in role-based access control (RBAC) system that is integrated with the Starburst Enterprise web UI. The RBAC system makes it easy to configure any user’s correct access rights to catalogs, individual schemas, and tables. If your security needs require more granular control, you can restrict or allow access to specific columns within a table, or to functions, stored procedures, session properties, or data products. The built-in access control audit log displays the log of access control changes made using the SEP built-in access control system.
+
+In this Section we will use the built-in access control to restrict access to our data product by applying a row filter that let our data science role only access data with nationkey 7. We will also apply a column maks for the customer name to protect PII data. 
+
+The masking and role level filters are applied on the fly without any requirements for data duplication on the source systems.  Starburst provides a governance layer on top of different connected data sources. The access to data as well as any changes are captured in an audit log.  
+
+![Security](images/security.png)
 
