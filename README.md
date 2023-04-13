@@ -242,7 +242,7 @@ You can go to the Query Editor and query the data product dataset using the foll
 
 `select * from hive.automobilespend.automobile_customer_spend`
 
-![Create Table](images/create-a-data-product-10.png)
+![Query Data Product](images/create-a-data-product-10.png)
 
 ### 19. Searching for Data Products
 
@@ -256,4 +256,158 @@ In this Section we will use the built-in access control to restrict access to ou
 The masking and role level filters are applied on the fly without any requirements for data duplication on the source systems.  Starburst provides a governance layer on top of different connected data sources. The access to data as well as any changes are captured in an audit log.  
 
 ![Security](images/security.png)
+
+## 1. Create a role for data science 
+
+Step 1: Navigate to the Roles and privileges menu bar.
+
+Step 2:  Click the Create role Button 
+
+![Create a data science role](images/security-roles-1.png)
+
+
+
+Please enter Role name. In our example the name of the role is
+<u> data_science</u>. 
+
+Enter a description for your role and click the "Add role" button.
+
+![Create the data_science role](images/security-roles-2.png)
+
+## 2. Assign users to our role.
+
+You can assign users, groups and other roles to a role. 
+
+
+Step 1: Click the Assign Button on the Actions tab.
+
+Step 2:  Click the Assign Button 
+
+![Assign users to a role](images/security-roles-3.png)
+
+Please select User from the Entity Category.
+
+Enter <u> datascience1 </u> as the user name.  
+It is very important that you enter the name correctly. We will use the name later to login to the Starburst UI and demonstrate the access control defined for our data_science role. 
+
+Click the "Assign Button" to add the user.
+
+![Assign users to a role](images/security-roles-4.png)
+
+
+## 4. Create a Row Level Filter 
+
+For our data scientists we want to allow only access to data with the <u> nationkey 7 </u>.  
+
+Step 1: Navigate to Masks and filters  
+Step 2: Got to the Row filters tab  
+Step 3: Click the create new filter button  
+
+
+
+![Create a Row Filter](images/security-rowfilter-1.png)
+
+A row filter consists of a SQL condition that excludes rows from appearing where the condition is met. For example, a row filter containing the expression country-code='US' excludes any rows from the result set where the country-code column has a value of US.
+
+Please create the filter with the  following entries and click the create Button
+
+
+|     |  |  
+| -------- | -------- | 
+| Filter name  | **nationkey_7**     | 
+| Expression | **nationkey=7**    |  
+| Description | **Allow data access only for rows with nationkey 7**    |  
+
+![Create a Row Filter](images/security-rowfilter-2.png)
+
+
+
+## 5. Add data product privileges to the data_science role
+
+With BIAC we are able to seperate the Data Product metadata permissions from the data access permissions.  
+We will first define what our data scientists can do with a data product and in a later step we will define the access to the dataset. 
+
+Step 1: Navigate to Roles and priviledges  
+Step 2: Click the Create role button  
+Step 3: Click the Add privileges button
+
+![Add Data Procduct privileges to the data_science role  ](images/security-priv-1.png)
+
+Step 1: Select Data Products  
+Step 2: Select the Sales domain
+Step 3: Select the automobile-spend Data Product
+
+
+![Add Data Procduct privileges to the data_science role](images/security-priv-3.png)
+
+Step 5: Select "Allow"   
+Step 6: Select "Show" privileges only
+Step 7: Click the "Save privileges button"
+
+![Add Data Procduct privileges to the data_science role](images/security-priv-2.png)
+
+We want to define fine grained access controls to our dataset as a next step so 
+Click the  "Yes, add another privilege"  button to continue.
+
+![Add Data Procduct privileges to the data_science role](images/security-priv-4.png)
+
+
+
+## 6. Add fine grained access control privileges for our dataset
+
+To protect our datasets we will now define fine grained access controls.
+
+Step 1: Select "Tables"  
+Step 2: Select the "hive" catalog  
+Step 3: Select the dataproduct schema "automobilspend"  from the drop down menu
+
+![Add fine grained dataset privileges to the data_science role](images/security-priv-6.png)
+
+Step 4: Select the name of our data product dataset "automobil_customer_spend" from the table/view drop down list 
+
+
+![Add fine grained dataset privileges to the data_science role](images/security-priv-7.png)
+
+Step 5: Open the select column menu and select the all columns button! 
+
+![Add fine grained dataset privileges to the data_science role](images/security-priv-8.png)
+
+
+Step 6: Select "Allow" access  
+Step 7: Check the "Select" privilege checkbox
+
+![Add fine grained dataset privileges to the data_science role](images/security-priv-9.png)
+
+### Masking
+
+Step 8: Expand the "Add column masks and filters menu"  
+Step 9: Select the "Add column mask" button
+
+![Add fine grained dataset privileges to the data_science role](images/security-priv-10.png)
+
+Step 10: select the name column and select the column mask strings
+
+![Add fine grained dataset privileges to the data_science role](images/security-priv-11.png)
+
+### Row Level Filter
+
+Step 11: validate that you have set the correct column mask.  
+Step 12: click the "Add row filter" button.
+
+![Add fine grained dataset privileges to the data_science role](images/security-priv-12.png)
+
+Step 13: Select the row filter nationkey_7 from the drop down menu
+
+![Add fine grained dataset privileges to the data_science role](images/security-priv-13.png)
+
+Step 14: Validate your row filter as shown below
+
+![Add fine grained dataset privileges to the data_science role](images/security-rowfilter-3.png)
+
+Step 15: We don't want to add another privilege so you can Click the "No, add later" button
+
+![Add fine grained dataset privileges to the data_science role](images/security-priv-14.png)
+
+
+## 7. Validate Permissions
 
