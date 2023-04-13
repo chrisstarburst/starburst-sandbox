@@ -411,3 +411,17 @@ Step 15: We don't want to add another privilege so you can Click the "No, add la
 
 ## 7. Validate Permissions
 
+
+![Add fine grained dataset privileges to the data_science role](images/security-validation-1.png)
+
+![Add fine grained dataset privileges to the data_science role](images/security-validation-2.png)
+
+![Add fine grained dataset privileges to the data_science role](images/security-validation-3.png)
+
+![Add fine grained dataset privileges to the data_science role](images/security-validation-4.png)
+
+![Add fine grained dataset privileges to the data_science role](images/security-validation-5.png)
+
+![Add fine grained dataset privileges to the data_science role](images/security-validation-6.png)
+
+![Add fine grained dataset privileges to the data_science role](images/security-validation-8.png)
