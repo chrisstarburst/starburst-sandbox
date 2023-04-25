@@ -28,7 +28,8 @@ This Sandbox is based on the   https://github.com/starburstdata/dbt-trino   proj
 
 
 ## Prerequisites
-- docker compose
+- git or github cli
+- running docker daemon and docker compose
 - Resources: 6GB RAM, 2 Cores, x GB Free Space
 - Available Ports:  localhost:8080 and :9001
 - Access to the Starburst Harbor Registry
@@ -37,7 +38,10 @@ This Sandbox is based on the   https://github.com/starburstdata/dbt-trino   proj
 ## Tested 
 
 - Tested on Docker version 23.0.1 and Rancher Desktop Version 1.8.1 
-- Tested with Starburst Enterprise Versions 
+- Tested on Docker Desktop  
+  -   Version 4.17.8
+  -   Version 4.18.5
+- Tested with Starburst Enterprise versions 
     - SEP STS 4.10
 
 
@@ -56,6 +60,8 @@ This Sandbox is based on the   https://github.com/starburstdata/dbt-trino   proj
 ## Installation
 
 ## 1. Configure Starburst harbor registry
+
+Open a Terminal and enter the following comand:
 
 `docker login harbor.starburstdata.net/starburstdata --username <your-starburst-harbor-user --password <your-starburst-harbor-password>`
 
@@ -411,17 +417,52 @@ Step 15: We don't want to add another privilege so you can Click the "No, add la
 
 ## 7. Validate Permissions
 
+To validate the permissions for our BIAC Roles and for our data product we would need another browser window for our datascience1 user.  
+The datascience1 user is assigned to the data_science  role. Our goal was to maks the name column and allow only rows with the nationkey = 7 for that user.
+Now it is the time to validate. 
+
+![Security](images/security.png)
+
+Step 16: Open Chrome and a new incognito window. 
 
 ![Add fine grained dataset privileges to the data_science role](images/security-validation-1.png)
 
+Step 17: Login with your **datascience1** user. 
+
+
 ![Add fine grained dataset privileges to the data_science role](images/security-validation-2.png)
+
+Step 18: Select the **data_science** role and click the rember selected role button. 
+
 
 ![Add fine grained dataset privileges to the data_science role](images/security-validation-3.png)
 
+Step 19: As we will work and switch between different Users (**admin** and **datascience1**) we will enable  dark mode for our datascience1 user.
+
+
 ![Add fine grained dataset privileges to the data_science role](images/security-validation-4.png)
+
+Naviagate to Data Products on the left menu and select the Data Product automobile-spend. 
+
 
 ![Add fine grained dataset privileges to the data_science role](images/security-validation-5.png)
 
+
+On the Data Product scroll down to the dataset **automobil_customer_spend** and click preview dataset. 
+
 ![Add fine grained dataset privileges to the data_science role](images/security-validation-6.png)
 
+You should see that the name column is masked and that only rows with the nationkey = 7 are available.
+
+
 ![Add fine grained dataset privileges to the data_science role](images/security-validation-8.png)
+
+You can use the query editor to explore the dataset further or connect the data product to an external BI or DataScience tool of your choice. 
+Summary: 
+- You can restrict the access to Data Products and to the Daset using Starburst BIAC
+- Starburst can simplify the Governance accross different data silos and reduce time to insights for the data users.  
+- Starburst will not duplicate any data to enable data masking. Reduce uncessary copies and delays. 
+
+You can find additional documention on the Starburst docs: 
+https://docs.starburst.io/latest/security/biac-overview.html
+ 
