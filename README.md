@@ -106,6 +106,8 @@ Starburst Login Page
 
 ## Sandbox Maintenance
 
+You have already started the Sandbox, however you can find below the instructions on how you can start|stop|remove the instance in case needed. You can skip this section and continue with the tutorial.
+
 ### Start Instances:
 You can start the Starburst Sandbox using the following command: 
 
@@ -198,7 +200,7 @@ Click on the "Add to Data Product" link and then select the Dialog "Create New d
 
 ## 11. Define the Dataproduct
 
-Provide a title and a description for your data product and click 'Save and Continue'.
+Provide a title and a description for your data product, select the **Hive** Catalog, the **Sales** Domain and click 'Save and Continue'.
 
 ![Create Table](images/create-a-data-product-2.png)
 
@@ -257,7 +259,7 @@ You can go to the Query Editor and query the data product dataset using the foll
 
 Starburst Enterprise platform (SEP) provides a built-in role-based access control (RBAC) system that is integrated with the Starburst Enterprise web UI. The RBAC system makes it easy to configure any user’s correct access rights to catalogs, individual schemas, and tables. If your security needs require more granular control, you can restrict or allow access to specific columns within a table, or to functions, stored procedures, session properties, or data products. The built-in access control audit log displays the log of access control changes made using the SEP built-in access control system.
 
-In this Section we will use the built-in access control to restrict access to our data product by applying a row filter that let our data science role only access data with nationkey 7. We will also apply a column maks for the customer name to protect PII data. 
+In this section we will use the built-in access control to restrict access to our data product by applying a row filter that let our data science role only access data with nationkey 7. We will also apply a column mask for the customer name to protect PII data. 
 
 The masking and role level filters are applied on the fly without any requirements for data duplication on the source systems.  Starburst provides a governance layer on top of different connected data sources. The access to data as well as any changes are captured in an audit log.  
 
@@ -293,7 +295,7 @@ Step 2:  Click the Assign Button
 
 Please select User from the Entity Category.
 
-Enter <u> datascience1 </u> as the user name.  
+Enter <u> `datascience1` </u> as the user name.  
 It is very important that you enter the name correctly. We will use the name later to login to the Starburst UI and demonstrate the access control defined for our data_science role. 
 
 Click the "Assign Button" to add the user.
@@ -465,4 +467,4 @@ Summary:
 
 You can find additional documention on the Starburst docs: 
 https://docs.starburst.io/latest/security/biac-overview.html
- 
+
