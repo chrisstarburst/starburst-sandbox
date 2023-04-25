@@ -335,8 +335,8 @@ Please create the filter with the  following entries and click the create Button
 With BIAC we are able to seperate the Data Product metadata permissions from the data access permissions.  
 We will first define what our data scientists can do with a data product and in a later step we will define the access to the dataset. 
 
-Step 1: Navigate to Roles and priviledges  
-Step 2: Click the Create role button  
+Step 1: Navigate to Roles and privileges  
+Step 2: Click the Details button on the datascience role 
 Step 3: Click the Add privileges button
 
 ![Add Data Procduct privileges to the data_science role  ](images/security-priv-1.png)
