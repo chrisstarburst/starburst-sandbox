@@ -354,7 +354,7 @@ Step 7: Click the "Save privileges button"
 
 ![Add Data Procduct privileges to the data_science role](images/security-priv-2.png)
 
-We want to define fine grained access controls to our dataset as a next step so 
+We want to define fine grained access controls to protect our dataset. The goal is to use data masking to mask senstive data in our case PII and use a role level filter to restrict access only to a certain region using the nationkey.  As a next step so 
 Click the  "Yes, add another privilege"  button to continue.
 
 ![Add Data Procduct privileges to the data_science role](images/security-priv-4.png)
